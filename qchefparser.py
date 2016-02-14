@@ -20,8 +20,9 @@ if __name__ == "__main__":
 	if args.website is not None:
 		print "Website-scraping is not implemented.  Sorry!"
 		sys.exit()
-	try:
-		with open(args.file, "rb") as recipe_source:
-			recipe_separator.separate(recipe_source, collection)
-	except:
-		"No file provided, or provided file not found.  Sorry!"
+
+	#try:
+	with open(args.file, "rb") as recipe_source:
+		recipe_separator.separate(recipe_source, collection)
+	#except:
+	#	"No file provided, or provided file not found.  Sorry!"
