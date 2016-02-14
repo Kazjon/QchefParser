@@ -41,6 +41,7 @@ title = ""
 categories = ""
 servings = ""
 ingredients_list_lines = []
+ingredients_w_measurement = []
 steps = []
 
 
@@ -58,12 +59,31 @@ def store_servings (raw_string):
 	print servings
 
 def store_ingredients (raw_string):
+	raw_string = raw_string.lstrip()
 	ingredients_list_lines.append(raw_string)
 	print raw_string
+
+	ingredient_1 = ""
+	ingredient_2 = ""
+
+	ingredient_1 = raw_string.split("   ")[0]
+	ingredient_2 = raw_string.split("   ")[1]
+	ingredients_w_measurement.append(ingredient_1)
+	# ingredients_w_measurement.append(ingredient_2)
+	print ingredient_1
+
 
 def store_steps (raw_string):
 	steps.append(raw_string)
 	print raw_string
+
+
+def split_ingredient_columns (line):
+	ingredient_1 = line.split("   ")[0]
+	ingredient_2 = line.split("   ")[1]
+	ingredients_w_measurement.append(ingredient_1)
+	ingredients_w_measurement.append(ingredient_2)
+
 
 for i, line in enumerate(raw_text):
 	stripped = line.strip(" \t\n\r")
@@ -92,7 +112,6 @@ for i, line in enumerate(raw_text):
 
 print ""
 print ingredients_list_lines
-
 
 
 
